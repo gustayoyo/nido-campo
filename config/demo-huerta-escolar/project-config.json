@@ -1,0 +1,36 @@
+{
+  "schema": "campo-config/1",
+  "project": "demo-huerta-escolar",
+  "config_version": "demo-huerta-escolar/1",
+  "name": "Huertas escolares (proyecto de ejemplo)",
+  "language": "es",
+  "server_url": "http://localhost:8080",
+  "invite_codes": { "demo-2026": { "territory": "demo", "label": "Equipo demo" } },
+  "municipios": ["Armenia", "Calarcá", "Otro"],
+  "veredas": { "Armenia": ["Casco urbano", "Otra"], "Calarcá": ["Casco urbano", "Otra"], "Otro": ["Otra"] },
+  "sites": [
+    { "id": "escuela-norte", "name": "Escuela Norte", "kind": "escuela", "municipio": "Armenia", "vereda": "Casco urbano" },
+    { "id": "escuela-rio", "name": "Escuela El Río", "kind": "escuela", "municipio": "Calarcá", "vereda": "Casco urbano" }
+  ],
+  "header": [
+    { "key": "started_at", "label": "Fecha y hora", "type": "datetime", "auto": true },
+    { "key": "municipio", "label": "Municipio", "type": "enum", "options_from": "municipios", "required": true },
+    { "key": "site_ref", "label": "Escuela", "type": "site", "required": true },
+    { "key": "author", "label": "Quién visita", "type": "text", "remember": true, "required": true },
+    { "key": "consent", "label": "Consentimiento", "type": "consent", "required": true },
+    { "key": "notes", "label": "Nota libre", "type": "longtext" }
+  ],
+  "visit_types": [
+    { "id": "siembra", "label": "Jornada de siembra", "icon": "🌽", "mvp": true, "fields": [
+      { "key": "students_count", "label": "Cuántos estudiantes", "type": "number" },
+      { "key": "crops", "label": "Qué se sembró", "type": "multi", "options": ["cilantro", "lechuga", "tomate", "maíz", "fríjol", "otro"], "other_text": true },
+      { "key": "beds", "label": "Camas sembradas", "type": "number" } ] },
+    { "id": "cosecha", "label": "Cosecha", "icon": "🥬", "mvp": true, "fields": [
+      { "key": "kg", "label": "Kilos cosechados", "type": "number" },
+      { "key": "destination", "label": "A dónde fue", "type": "enum", "options": ["restaurante escolar", "familias", "venta", "otro"] } ] },
+    { "id": "nota", "label": "Nota libre", "icon": "🎙️", "mvp": true, "fields": [] }
+  ],
+  "media": { "photo": { "max_long_edge_px": 1600, "jpeg_quality": 80, "strip_exif": true }, "flags_required": ["people_identifiable", "minors_present"] },
+  "privacy": { "gps": "never", "geography_floor": "municipio", "default_consent_scope": "internal", "public_blocked_if": ["minors_present"] },
+  "strings": { "save": "Guardar", "sync": "Sincronizar", "new_visit": "Nueva visita" }
+}

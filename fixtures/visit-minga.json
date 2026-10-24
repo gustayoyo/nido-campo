@@ -1,0 +1,40 @@
+{
+  "schema": "campo/1",
+  "id": "6f1c2a4e-9b0d-4d3a-a6f2-0c5b8e7d1a22",
+  "project": "nido-pijao",
+  "visit_type": "minga",
+  "started_at": "2026-10-03T08:30:00-05:00",
+  "ended_at": "2026-10-03T13:10:00-05:00",
+  "device_id": "demo-phone-1",
+  "author": "Gustavo",
+  "companions": ["La Semilla", "Quetzales de Pijao"],
+  "municipio": "Pijao",
+  "vereda": "Arenales",
+  "site_ref": "sendero-arenales",
+  "host_name": null,
+  "consent": { "given_by": "La Semilla", "scope": "publishable", "verbal": true, "recorded_in_audio": false },
+  "answers": {
+    "minga_ref": "sendero-arenales",
+    "purpose": "Señalización del sendero de aves y limpieza del camino",
+    "attendees_count": 14,
+    "hours": 4.5,
+    "work_done": ["limpieza", "señalización"],
+    "meals": 18,
+    "meal_funder": "sancocho-club",
+    "tools_shared": "barras, palas, machetes",
+    "seeds_exchanged": "",
+    "incidents": "",
+    "lesson": "Los letreros van mejor a la altura de la vista, antes de cada curva."
+  },
+  "notes": "",
+  "follow_up": { "needed": true, "what": "Faltan dos letreros al final del sendero", "by": "2026-10-17" },
+  "media": [
+    { "id": "m1", "kind": "photo", "file": "6f1c2a4e-9b0d-4d3a-a6f2-0c5b8e7d1a22/01.jpg", "bytes": 0, "sha256": "REPLACE_WITH_REAL_HASH",
+      "people_identifiable": true, "minors_present": false, "caption": "", "label": "camino" },
+    { "id": "m2", "kind": "photo", "file": "6f1c2a4e-9b0d-4d3a-a6f2-0c5b8e7d1a22/02.jpg", "bytes": 0, "sha256": "REPLACE_WITH_REAL_HASH",
+      "people_identifiable": true, "minors_present": true, "caption": "", "label": "la olla" },
+    { "id": "a1", "kind": "audio", "file": "6f1c2a4e-9b0d-4d3a-a6f2-0c5b8e7d1a22/a1.m4a", "duration_s": 42, "label": "resumen" }
+  ],
+  "app_version": "0.0.0-fixture",
+  "config_version": "nido-pijao/1"
+}

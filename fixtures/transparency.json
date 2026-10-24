@@ -1,0 +1,29 @@
+{
+  "schema": "transparency/1",
+  "project": { "name": "Alianza Nido", "org": "Corporación Espejo de Agua", "lang": ["es", "en"], "site": "https://espejodeagua.org/nido" },
+  "updated_at": "2026-10-24T15:00:00Z",
+  "trm": { "value": 3116, "as_of": "2026-10-03" },
+  "funds": [
+    { "id": "techo-camino-semilla", "name": "Techo, Camino y Semilla", "channel": "gofundme", "raised": 1982, "goal": 25000, "phase1_goal": 8000, "currency": "USD", "donors": null }
+  ],
+  "sites": [
+    {
+      "id": "golondrinas", "name": "Casa 1 · Finca Las Golondrinas", "municipio": "Pijao", "status": "en-obra",
+      "steps": ["demolicion", "excavacion", "vigas", "contrapiso", "muros", "amarre", "cubierta", "habitar"],
+      "step_labels_es": ["Demolición y limpieza", "Excavación y zapatas", "Vigas de cimentación", "Contrapiso", "Muros", "Viga de amarre", "Cubierta", "Acabados y habitar"],
+      "current_step": 1, "progress_pct": 50,
+      "budget": [
+        { "category": "materiales", "label_es": "Materiales", "spent": 6000000, "committed": 0, "needed": 0, "approx": true },
+        { "category": "mano-de-obra", "label_es": "Mano de obra", "spent": 1800000, "committed": 0, "needed_min": 10000000, "needed_max": 12000000 }
+      ],
+      "milestones": [
+        { "at": "2026-09-19", "text_es": "Minga de demolición y limpieza, con sancochada de Sancocho Club", "text_en": "Demolition and site-clearing minga, with a sancocho funded by Sancocho Club", "evidence": 0 },
+        { "at": "2026-09-19", "text_es": "El maestro de obra entrega diseño de cimentación y cotización", "text_en": "The master builder delivers the foundation design and labour quote", "evidence": 0 },
+        { "at": "2026-10-10", "text_es": "Excavación de zapatas al 50 %", "text_en": "Footing excavation at 50%", "evidence": 1 }
+      ]
+    }
+  ],
+  "mingas": { "count": 2, "attendees": 26, "meals": 38, "by_funder": { "sancocho-club": 38 } },
+  "deliveries": { "count": 0, "signed": 0 },
+  "weekly_report": null
+}

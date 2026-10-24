@@ -1,0 +1,11 @@
+mock-server/data/
+node_modules/
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+.env
+*.keystore
+app/build/
+app/.dart_tool/
+dist/

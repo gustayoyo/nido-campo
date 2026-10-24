@@ -1,0 +1,8 @@
+{"id":"evt_0001","at":"2026-09-19","type":"quote","site":"golondrinas","category":"mano-de-obra","amount":14855460,"currency":"COP","note":"Cotización completa del maestro de obra","by":"import"}
+{"id":"evt_0002","at":"2026-09-19","type":"step_completed","site":"golondrinas","step":"demolicion","by":"import"}
+{"id":"evt_0003","at":"2026-09-19","type":"minga","site":"golondrinas","attendees":12,"meals":20,"meal_funder":"sancocho-club","by":"import"}
+{"id":"evt_0004","at":"2026-09-25","type":"expense","site":"golondrinas","category":"materiales","amount":6000000,"currency":"COP","status":"paid","receipt":"private","approx":true,"by":"import"}
+{"id":"evt_0005","at":"2026-09-25","type":"expense","site":"golondrinas","category":"mano-de-obra","amount":1800000,"currency":"COP","status":"paid","receipt":"private","note":"Transporte y mano de obra, primera etapa","by":"import"}
+{"id":"evt_0006","at":"2026-10-01","type":"donation","channel":"gofundme","fund":"techo-camino-semilla","amount":1982,"currency":"USD","donors":null,"by":"import"}
+{"id":"evt_0007","at":"2026-10-03","type":"minga","site":"sendero-arenales","attendees":14,"meals":18,"meal_funder":"sancocho-club","source":"campo:6f1c2a4e-9b0d-4d3a-a6f2-0c5b8e7d1a22","by":"review"}
+{"id":"evt_0008","at":"2026-10-10","type":"step_progress","site":"golondrinas","step":"excavacion","progress_pct":50,"source":"campo:b2d7e5a1-3c44-4f0e-9d21-5e6f7a8b9c01","by":"review"}

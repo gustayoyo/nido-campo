@@ -1,0 +1,38 @@
+{
+  "schema": "campo/1",
+  "id": "b2d7e5a1-3c44-4f0e-9d21-5e6f7a8b9c01",
+  "project": "nido-pijao",
+  "visit_type": "obra",
+  "started_at": "2026-10-10T09:00:00-05:00",
+  "ended_at": "2026-10-10T09:45:00-05:00",
+  "device_id": "demo-phone-1",
+  "author": "Gustavo",
+  "companions": ["maestro de obra"],
+  "municipio": "Pijao",
+  "vereda": "La Maizena",
+  "site_ref": "golondrinas",
+  "host_name": null,
+  "consent": { "given_by": "familia", "scope": "internal", "verbal": true, "recorded_in_audio": true },
+  "answers": {
+    "site_ref": "golondrinas",
+    "current_step": "excavacion",
+    "step_progress": "50",
+    "work_done": "Excavación de 8 de 12 zapatas. Llegó la arena.",
+    "materials_on_site": ["cemento", "arena", "hierro"],
+    "materials_missing": "gravilla",
+    "crew_count": 4,
+    "issues": ["suministro"],
+    "expenses": [ { "rubro": "transporte", "amount_cop": 120000, "receipt": "m1" } ],
+    "next_step": "Terminar zapatas y fundir vigas",
+    "next_date": "2026-10-17"
+  },
+  "notes": "",
+  "follow_up": { "needed": true, "what": "Conseguir gravilla", "by": "2026-10-14" },
+  "media": [
+    { "id": "m1", "kind": "photo", "file": "b2d7e5a1-3c44-4f0e-9d21-5e6f7a8b9c01/01.jpg", "bytes": 0, "sha256": "REPLACE_WITH_REAL_HASH",
+      "people_identifiable": false, "minors_present": false, "caption": "", "label": "recibo transporte" },
+    { "id": "a1", "kind": "audio", "file": "b2d7e5a1-3c44-4f0e-9d21-5e6f7a8b9c01/a1.m4a", "duration_s": 84, "label": "materiales" }
+  ],
+  "app_version": "0.0.0-fixture",
+  "config_version": "nido-pijao/1"
+}

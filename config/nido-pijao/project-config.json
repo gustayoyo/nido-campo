@@ -1,0 +1,181 @@
+{
+  "schema": "campo-config/1",
+  "project": "nido-pijao",
+  "config_version": "nido-pijao/1",
+  "name": "Alianza Nido · Pijao",
+  "language": "es",
+  "server_url": "http://localhost:8080",
+  "invite_codes": {
+    "pijao-2026": { "territory": "pijao", "label": "Equipo Pijao" },
+    "filandia-2026": { "territory": "filandia", "label": "Equipo Filandia" }
+  },
+  "municipios": ["Pijao", "Filandia", "Armenia", "Otro"],
+  "veredas": {
+    "Pijao": ["La Maizena", "Arenales", "Barragán", "La Mariela", "Patio Bonito", "Las Pizarras", "Río Lejos", "Otra"],
+    "Filandia": ["Otra"],
+    "Armenia": ["Casco urbano", "Otra"],
+    "Otro": ["Otra"]
+  },
+  "sites": [
+    { "id": "golondrinas", "name": "Casa 1 · Finca Las Golondrinas", "kind": "casa", "municipio": "Pijao", "vereda": "La Maizena" },
+    { "id": "la-semilla", "name": "Finca La Semilla", "kind": "finca", "municipio": "Pijao", "vereda": "Arenales" },
+    { "id": "sendero-arenales", "name": "Sendero ecológico Arenales", "kind": "sendero", "municipio": "Pijao", "vereda": "Arenales" }
+  ],
+  "pasos_casa": [
+    { "id": "demolicion", "label": "Demolición y limpieza" },
+    { "id": "excavacion", "label": "Excavación y zapatas" },
+    { "id": "vigas", "label": "Vigas de cimentación" },
+    { "id": "contrapiso", "label": "Contrapiso" },
+    { "id": "muros", "label": "Muros" },
+    { "id": "amarre", "label": "Viga de amarre aérea" },
+    { "id": "cubierta", "label": "Cubierta" },
+    { "id": "habitar", "label": "Acabados y habitar" }
+  ],
+  "rubros": ["materiales", "transporte", "mano-de-obra", "alimentacion", "herramienta", "otro"],
+  "header": [
+    { "key": "started_at", "label": "Fecha y hora", "type": "datetime", "auto": true },
+    { "key": "municipio", "label": "Municipio", "type": "enum", "options_from": "municipios", "required": true },
+    { "key": "vereda", "label": "Vereda", "type": "enum", "options_from": "veredas[municipio]", "required": true },
+    { "key": "site_ref", "label": "Casa o finca", "type": "site", "allow_new": true },
+    { "key": "author", "label": "Quién visita", "type": "text", "remember": true, "required": true },
+    { "key": "companions", "label": "Quién más va", "type": "text" },
+    { "key": "host_name", "label": "Quién recibe (opcional, solo con consentimiento)", "type": "text" },
+    { "key": "consent", "label": "Consentimiento", "type": "consent", "required": true,
+      "help": "Antes de la primera foto o nota de voz. Por defecto: solo interno." },
+    { "key": "notes", "label": "Nota libre", "type": "longtext" },
+    { "key": "follow_up", "label": "¿Hay que hacer seguimiento?", "type": "followup" }
+  ],
+  "visit_types": [
+    {
+      "id": "minga", "label": "Minga o convite", "icon": "🍲", "mvp": true,
+      "help": "Un día de trabajo comunitario. Cuenta personas, no nombres.",
+      "fields": [
+        { "key": "minga_ref", "label": "Minga", "type": "site", "kinds": ["sendero", "casa", "finca"], "allow_new": true },
+        { "key": "purpose", "label": "Propósito", "type": "text" },
+        { "key": "attendees_count", "label": "Cuántas personas vinieron", "type": "number", "required": true },
+        { "key": "hours", "label": "Horas aprox", "type": "number" },
+        { "key": "work_done", "label": "Lo hecho", "type": "multi", "options": ["limpieza", "excavación", "siembra", "señalización", "cocina", "transporte de material", "otro"], "other_text": true },
+        { "key": "meals", "label": "Platos de sancocho servidos", "type": "number" },
+        { "key": "meal_funder", "label": "Quién puso la olla", "type": "enum", "options": ["sancocho-club", "aliado", "familia", "otro"] },
+        { "key": "meal_cost_cop", "label": "Costo de la olla (COP, si se sabe)", "type": "number" },
+        { "key": "tools_shared", "label": "Herramienta compartida", "type": "text" },
+        { "key": "seeds_exchanged", "label": "Semillas o estacas intercambiadas", "type": "text" },
+        { "key": "incidents", "label": "Incidentes o seguridad", "type": "text" },
+        { "key": "lesson", "label": "Un aprendizaje para compartir", "type": "text" }
+      ]
+    },
+    {
+      "id": "obra", "label": "Visita técnica de obra", "icon": "🧱", "mvp": true,
+      "help": "Revisión de una casa en construcción.",
+      "fields": [
+        { "key": "site_ref", "label": "Casa", "type": "site", "kinds": ["casa"], "required": true },
+        { "key": "current_step", "label": "Paso actual", "type": "enum", "options_from": "pasos_casa", "required": true },
+        { "key": "step_progress", "label": "Avance del paso", "type": "enum", "options": ["0", "25", "50", "75", "100"] },
+        { "key": "work_done", "label": "Qué se hizo desde la última visita", "type": "longtext", "voice": true },
+        { "key": "materials_on_site", "label": "Materiales en sitio", "type": "multi", "options": ["cemento", "arena", "gravilla", "hierro", "ladrillo", "guadua", "teja", "madera", "tubería"], "other_text": true },
+        { "key": "materials_missing", "label": "Qué falta", "type": "text" },
+        { "key": "crew_count", "label": "Cuadrilla presente", "type": "number" },
+        { "key": "issues", "label": "Problemas o riesgos", "type": "multi", "options": ["humedad", "cimiento", "suministro", "clima", "seguridad", "presupuesto"], "other_text": true },
+        { "key": "expenses", "label": "Gasto registrado hoy", "type": "items", "columns": [
+          { "key": "rubro", "label": "Rubro", "type": "enum", "options_from": "rubros" },
+          { "key": "amount_cop", "label": "Monto COP", "type": "number" },
+          { "key": "receipt", "label": "Comprobante", "type": "photo" } ] },
+        { "key": "signed_record", "label": "Acta o entrega firmada", "type": "photo" },
+        { "key": "next_step", "label": "Próximo paso", "type": "text" },
+        { "key": "next_date", "label": "Para cuándo", "type": "date" }
+      ]
+    },
+    {
+      "id": "censo", "label": "Visita inicial / censo familiar", "icon": "🏠", "mvp": false,
+      "help": "Primer contacto con una familia. Cuentas, no identidades. Nunca cédula ni dirección.",
+      "fields": [
+        { "key": "household", "label": "Personas en el hogar", "type": "counts", "items": [
+          { "key": "adults", "label": "Adultos" }, { "key": "children", "label": "Niñas y niños" },
+          { "key": "elders", "label": "Personas mayores" }, { "key": "reduced_mobility", "label": "Movilidad reducida" } ] },
+        { "key": "dwelling_state", "label": "Estado de la vivienda", "type": "enum", "options": ["habitable", "dañada", "destruida", "en-reconstruccion"] },
+        { "key": "current_shelter", "label": "Dónde viven ahora", "type": "enum", "options": ["misma-finca", "con-familia", "albergue", "arriendo", "otro"] },
+        { "key": "services", "label": "Servicios", "type": "matrix", "rows": ["agua", "luz", "saneamiento", "señal celular"], "options": ["sí", "parcial", "no"] },
+        { "key": "land_ha", "label": "Hectáreas aprox", "type": "number" },
+        { "key": "crops", "label": "Cultivos principales", "type": "multi", "options": ["café", "plátano", "frutales", "huerta", "pastos", "otro"], "other_text": true },
+        { "key": "animals", "label": "Animales", "type": "text" },
+        { "key": "losses", "label": "Pérdidas", "type": "multi", "options": ["casa", "cocina", "cultivos", "animales", "herramientas", "agua", "camino"], "other_text": true },
+        { "key": "urgent_needs", "label": "Necesidades urgentes (hasta 3)", "type": "multi", "max": 3, "options": ["techo", "agua", "comida", "herramientas", "semillas", "salud", "camino", "otro"], "other_text": true },
+        { "key": "participation", "label": "Quiere participar en", "type": "multi", "options": ["minga en su finca", "aportar manos", "Red de Apoyo Ayni", "Sanar y Sembrar"] },
+        { "key": "agreements", "label": "Acuerdos y próximos pasos", "type": "longtext", "voice": true }
+      ],
+      "never_ask": ["cedula", "direccion", "ingresos", "coordenadas", "religion", "politica"]
+    },
+    {
+      "id": "agro", "label": "Visita agro / finca", "icon": "🌱", "mvp": false,
+      "help": "Observar primero, interpretar después. Síntomas, no diagnósticos.",
+      "fields": [
+        { "key": "plot_name", "label": "Lote o sitio en la finca", "type": "text" },
+        { "key": "sheet_type", "label": "Tipo de ficha", "type": "enum", "options": ["lote de cultivo", "árbol", "suelo", "huerta", "agua y laderas", "cuidado de la casa"] },
+        { "key": "crop_or_species", "label": "Cultivo o especie", "type": "enum", "options": ["café", "plátano", "banano", "aguacate", "maíz", "fríjol", "zapallo", "caña", "guamo", "nogal", "chachafruto", "guadua", "otro"], "other_text": true },
+        { "key": "stage", "label": "Etapa", "type": "text" },
+        { "key": "observations", "label": "Lo observado", "type": "longtext", "voice": true },
+        { "key": "soil_test", "label": "Prueba de suelo", "type": "enum", "options": ["ninguna", "lavado de manos", "rollo", "frasco", "muro de prueba"] },
+        { "key": "soil_result", "label": "Resultado", "type": "text" },
+        { "key": "recommendation", "label": "Recomendación acordada", "type": "longtext" },
+        { "key": "inputs_delivered", "label": "Insumos o semillas entregadas", "type": "items", "columns": [
+          { "key": "item", "label": "Ítem", "type": "text" }, { "key": "qty", "label": "Cantidad", "type": "number" }, { "key": "unit", "label": "Unidad", "type": "text" } ] },
+        { "key": "next_visit", "label": "Próxima visita", "type": "date" }
+      ]
+    },
+    {
+      "id": "entrega", "label": "Entrega / acta firmada", "icon": "📦", "mvp": false,
+      "fields": [
+        { "key": "site_ref", "label": "Destino", "type": "site", "required": true },
+        { "key": "items", "label": "Ítems", "type": "items", "columns": [
+          { "key": "item", "label": "Ítem", "type": "text" }, { "key": "qty", "label": "Cantidad", "type": "number" },
+          { "key": "unit", "label": "Unidad", "type": "text" }, { "key": "value_cop", "label": "Valor COP", "type": "number" },
+          { "key": "source", "label": "Fuente", "type": "enum", "options": ["donación", "compra", "aliado"] } ] },
+        { "key": "receipt_media", "label": "Comprobante (foto de la factura)", "type": "photo" },
+        { "key": "signed_record", "label": "Acta firmada (foto)", "type": "photo" },
+        { "key": "received_by", "label": "Recibido por (con consentimiento)", "type": "text" }
+      ]
+    },
+    {
+      "id": "taller", "label": "Taller (Sanar y Sembrar)", "icon": "🎭", "mvp": false,
+      "help": "Solo a nivel de grupo. Nada sobre personas individuales.",
+      "fields": [
+        { "key": "session_type", "label": "Tipo", "type": "enum", "options": ["taller", "círculo", "juego", "teatro", "otro"] },
+        { "key": "place", "label": "Lugar", "type": "text" },
+        { "key": "participants", "label": "Participantes", "type": "counts", "items": [
+          { "key": "adults", "label": "Adultos" }, { "key": "children", "label": "Niñas y niños" }, { "key": "elders", "label": "Personas mayores" } ] },
+        { "key": "topic", "label": "Tema", "type": "text" },
+        { "key": "facilitators", "label": "Quién facilita (organizaciones)", "type": "text" },
+        { "key": "materials", "label": "Materiales usados", "type": "text" },
+        { "key": "group_notes", "label": "Observaciones generales del grupo", "type": "longtext", "voice": true },
+        { "key": "next_session", "label": "Próxima sesión", "type": "date" }
+      ]
+    },
+    {
+      "id": "nota", "label": "Nota libre", "icon": "🎙️", "mvp": true,
+      "help": "Voz, foto, texto. Sin formulario.",
+      "fields": [
+        { "key": "tags", "label": "Etiquetas", "type": "multi", "options": ["urgente", "idea", "pregunta", "para la web", "saber vivo"] }
+      ]
+    }
+  ],
+  "media": {
+    "photo": { "max_long_edge_px": 1600, "jpeg_quality": 80, "strip_exif": true },
+    "video": { "max_height_px": 720, "max_seconds": 90 },
+    "audio": { "max_seconds": 300, "codec": "aac-or-opus", "bitrate_kbps": 48 },
+    "flags_required": ["people_identifiable", "minors_present"]
+  },
+  "privacy": {
+    "gps": "never",
+    "geography_floor": "vereda",
+    "default_consent_scope": "internal",
+    "public_blocked_if": ["minors_present"],
+    "never_ask": ["cedula", "direccion", "ingresos", "coordenadas", "religion", "politica"]
+  },
+  "strings": {
+    "save": "Guardar", "sync": "Sincronizar", "new_visit": "Nueva visita", "queued": "En cola",
+    "partial": "Subiendo", "synced": "Subida", "draft": "Borrador", "consent_internal": "Solo interno",
+    "consent_publishable": "Se puede publicar", "people_identifiable": "Se reconoce a alguien",
+    "minors_present": "Hay niñas o niños", "record_voice": "Grabar nota de voz", "take_photo": "Tomar foto",
+    "take_video": "Grabar video", "export": "Exportar", "who_consented": "Quién dio el consentimiento"
+  }
+}
